@@ -1,0 +1,7 @@
+module.exports.roleValidations = require("./roleValidations")
+module.exports.authValidations = require("./authValidations")
+module.exports.userValidations = require("./user.validations.")
+module.exports.productValidations = require("./product.validations")
+module.exports.chatValidations = require("./chat.validations")
+module.exports.businessValidations = require("./businessValidations")
+module.exports.genericValidations = require("./genericValidations")

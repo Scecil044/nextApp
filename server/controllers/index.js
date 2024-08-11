@@ -1,0 +1,7 @@
+module.exports.authController = require("./auth.controller")
+module.exports.rolesController = require("./role.controller")
+module.exports.productsController = require("./products.controller")
+module.exports.usersController = require("./users.controller")
+module.exports.businessController = require("./business.controller")
+module.exports.genericController = require("./generic.controller")
+module.exports.chatController = require("./chat.controller")
