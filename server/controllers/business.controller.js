@@ -1,6 +1,7 @@
 const httpStatus = require("http-status");
 const errorHandler = require("../middlewares/errorHandler");
-const { businessService } = require("../services");
+const { businessService, logService } = require("../services");
+const logger = require("../middlewares/logger");
 
 const getBusinesses = async (req, res, next) => {
   try {

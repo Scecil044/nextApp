@@ -1,6 +1,7 @@
 const httpStatus = require("http-status");
 const errorHandler = require("../middlewares/errorHandler");
-const { roleService } = require("../services");
+const { roleService, logService } = require("../services");
+const logger = require("../middlewares/logger");
 
 
 const createRole = async(req, res,next)=>{

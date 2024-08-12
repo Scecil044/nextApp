@@ -1,6 +1,7 @@
 const httpStatus = require("http-status")
 const errorHandler = require("../middlewares/errorHandler")
-const { chatService } = require("../services")
+const { chatService, logService } = require("../services")
+const logger = require("../middlewares/logger");
 
 const sendMessage = async(req, res,next)=>{
     try {

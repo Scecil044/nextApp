@@ -1,7 +1,8 @@
 const httpStatus = require("http-status");
 const errorHandler = require("../middlewares/errorHandler");
+const logger = require("../middlewares/logger");
 
-const { authService, tokenService } = require("../services");
+const { authService, tokenService, logService } = require("../services");
 
 /**
  * This is the login function

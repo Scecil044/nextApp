@@ -1,5 +1,6 @@
 const errorHandler = require("../middlewares/errorHandler");
-const { productService } = require("../services");
+const { productService, logService } = require("../services");
+const logger = require("../middlewares/logger");
 
 const getProducts = async (req, res, next) => {
     try {

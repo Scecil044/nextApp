@@ -1,6 +1,7 @@
 const httpStatus = require("http-status");
 const errorHandler = require("../middlewares/errorHandler");
-const { genericService } = require("../services");
+const { genericService, logService } = require("../services");
+const logger = require("../middlewares/logger");
 
 const genericFilter = async(req, res,next)=>{
     try {

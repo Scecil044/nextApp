@@ -1,7 +1,7 @@
 const httpStatus = require("http-status");
 const errorHandler = require("../middlewares/errorHandler");
-const { userService } = require("../services");
-
+const { userService, logService } = require("../services");
+const logger = require("../middlewares/logger");
 // function to get user by id
 const getUserById = async(req,res,next)=>{
   try {
