@@ -1,7 +1,10 @@
+const he = require("he");
+
 const errorHandler = (statusCode, message) => {
     const error = new Error();
     error.statusCode = statusCode;
-    error.message = message;
+    // error.message = he.decode(message);
+    error.message = message.replace(/\\\"/g, '"'); 
 
     return error;
 }
