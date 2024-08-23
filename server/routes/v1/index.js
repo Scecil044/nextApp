@@ -8,6 +8,7 @@ const configRoutes = require("./config.routes");
 const orderRoutes = require("./order.routes");
 const genericRoutes = require("./generic.routes");
 const chatRoutes = require("./chat.routes");
+const configurationRoutes = require("./config.routes");
 
 const router = express.Router();
 
@@ -43,6 +44,10 @@ const defaultRoutes = [
     {
         path:"/chats",
         route:chatRoutes
+    },
+    {
+        path:"/configurations",
+        route:configurationRoutes
     },
 ]
 

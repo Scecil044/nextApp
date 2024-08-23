@@ -17,5 +17,5 @@ const ConfigSchema = new mongoose.Schema({
     deletedBy:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
 },{timestamps:true});
 
-const Config = mongoose.model("Config", ConfigSchema);
-module.exports = config
+const SystemConfig = mongoose.model("SystemConfig", ConfigSchema);
+module.exports = SystemConfig

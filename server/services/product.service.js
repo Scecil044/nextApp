@@ -1,6 +1,8 @@
 const getProductById = async businessId => {};
 
-const createNewProduct = async (reqBody, userId) => {};
+const createNewProduct = async (reqBody, userId) => {
+  
+};
 
 const updateProduct = async (businessId, reqBody) => {};
 

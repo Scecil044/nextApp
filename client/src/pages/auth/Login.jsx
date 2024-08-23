@@ -60,9 +60,9 @@
 //       <div className="flex-1 overflow-y-auto px-4 py-4">
 //         <div className="max-w-2xl mx-auto">
 //           {messages.map((message) => (
-//             <Message 
-//               key={message.id} 
-//               message={message} 
+//             <Message
+//               key={message.id}
+//               message={message}
 //               isSender={message.sender === 'You'}
 //             />
 //           ))}
@@ -94,11 +94,89 @@
 
 // export default Login;
 
+import { useState } from "react";
 
 export default function Login() {
+  const [formData, setFormData] = useState({});
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setEmailError("");
+    setPasswordError("");
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || formData.email === "") {
+      setEmailError("The email field is required");
+      hasError = true;
+    } else if (!emailRegex.test(formData.email)) {
+      setEmailError("Please enter a valid email address");
+      hasError = true;
+    }
+
+    if (!formData.password || formData.password === "") {
+      setPasswordError("The password field is required!");
+      hasError = true;
+    }
+
+    if (!hasError) {
+      // Proceed with form submission (e.g., make API call)
+      try {
+        console.log("submitting data");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
-    <div>
-      <form></form>
+    <div className="flex items-center justify-center min-h-screen">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded w-[400px] shadow-md shadow-blue-100">
+        <div>
+          <h1 className="text-2xl text-gray-400 mb-3">Login to Your Account</h1>
+        </div>
+        <div className="flex flex-col gap-1 mb-4">
+          <label htmlFor="email" className="text-sm">
+            Email
+          </label>
+          <input
+            type="text"
+            placeholder="Email"
+            id="email"
+            name="email"
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            className="border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {emailError && <span className="text-red-500 text-sm">{emailError}</span>}
+        </div>
+
+        <div className="flex flex-col gap-1 mb-4">
+          <label htmlFor="password" className="text-sm">
+            Password
+          </label>
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
+            className="border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {passwordError && !formData.password && <span className="text-red-500 text-sm">{passwordError}</span>}
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            className="bg-indigo-800 text-white px-4 py-2 rounded hover:bg-indigo-600 flex items-center justify-center gap-1 shadow-md hover:shadow-none transition-all duration-200"
+          >
+            <div className="rounded-full h-5 w-5 animate-spin border-b-2 border-white border-r-2" />
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
